@@ -3,149 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Calendario de Apartados</title>
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: #333;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            color: white;
-            padding: 20px;
-        }
-        
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        .calendar-container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            padding: 25px;
-            margin-bottom: 20px;
-        }
-        
-        #calendar {
-            margin: 0 auto;
-        }
-        
-        /* Estilos para los eventos de fondo */
-        .fc-daygrid-event {
-            min-height: 20px !important;
-            height: 20px !important;
-            margin: 1px 0 !important;
-            border: none !important;
-        }
-        
-        .fc-event-title {
-            display: none !important;
-        }
-        
-        .legend {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        
-        .color-box {
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-        }
-        
-        .sum {
-            background-color: #4CAF50;
-        }
-        
-        .asadores {
-            background-color: #2196F3;
-        }
-        
-        .info-box {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            margin-top: 20px;
-        }
-        
-        .info-box h2 {
-            color: #2575fc;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-        
-        .info-box p {
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-        
-        .highlight {
-            background-color: #e3f2fd;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #2575fc;
-            margin: 15px 0;
-        }
-        
-        .current-year {
-            text-align: center;
-            margin-top: 10px;
-            font-weight: bold;
-            color: #2575fc;
-            font-size: 1.1rem;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: #333; min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 30px; color: white; padding: 20px; }
+        h1 { font-size: 2.2rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); }
+        .subtitle { font-size: 1.1rem; opacity: 0.9; }
+        .calendar-container { background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); padding: 25px; margin-bottom: 20px; }
+        #calendar { margin: 0 auto; }
+        .fc-daygrid-event { min-height: 20px !important; height: 20px !important; margin: 1px 0 !important; border: none !important; }
+        .fc-event-title { display: none !important; }
+        .legend { display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; font-weight: 500; }
+        .color-box { width: 20px; height: 20px; border-radius: 4px; }
+        .sum { background-color: #4CAF50; }
+        .asadores { background-color: #2196F3; }
+        .info-box { background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); padding: 20px; margin-top: 20px; }
+        .info-box h2 { color: #2575fc; margin-bottom: 15px; font-size: 1.4rem; }
+        .info-box p { line-height: 1.6; margin-bottom: 10px; }
+        .highlight { background-color: #e3f2fd; padding: 15px; border-radius: 8px; border-left: 4px solid #2575fc; margin: 15px 0; }
+        .current-year { text-align: center; margin-top: 10px; font-weight: bold; color: #2575fc; font-size: 1.1rem; }
         @media (max-width: 768px) {
-            .calendar-container {
-                padding: 15px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .legend {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
+            .calendar-container { padding: 15px; }
+            h1 { font-size: 1.8rem; }
+            .legend { flex-direction: column; align-items: center; gap: 10px; }
         }
     </style>
 </head>
@@ -153,39 +38,29 @@
     <div class="container">
         <header>
             <h1>Calendario de Apartados</h1>
-            <p class="subtitle">Control de apartados SUM y Asadores - Solo modo consulta</p>
+            <p class="subtitle">Control de apartados SUM y Asadores - Solo modo visualización</p>
         </header>
         
         <div class="calendar-container">
             <div id="calendar"></div>
-            
             <div class="current-year" id="currentYearDisplay"></div>
-            
             <div class="legend">
-                <div class="legend-item">
-                    <div class="color-box sum"></div>
-                    <span>Apartado SUM</span>
-                </div>
-                <div class="legend-item">
-                    <div class="color-box asadores"></div>
-                    <span>Apartado Asadores</span>
-                </div>
+                <div class="legend-item"><div class="color-box sum"></div><span>Apartado SUM</span></div>
+                <div class="legend-item"><div class="color-box asadores"></div><span>Apartado Asadores</span></div>
             </div>
         </div>
         
         <div class="info-box">
             <h2>Información del Calendario</h2>
             <p>Este calendario muestra los <strong>apartados de SUM y Asadores</strong>. Es de <strong>solo consulta</strong> y no permite realizar modificaciones.</p>
-            
             <div class="highlight">
                 <p><strong>Leyenda:</strong> 
                   <br>- <span style="color:#4CAF50;font-weight:bold">Verde:</span> Apartado SUM
                   <br>- <span style="color:#2196F3;font-weight:bold">Azul:</span> Apartado Asadores
                 </p>
+                <p><strong>Nota:</strong> Cuando hay múltiples apartados en el mismo día, se muestran como bloques separados.</p>
             </div>
-            
-            <p>Para apartados se debe enviar correo a <a href="torreaquiles@administracionsixsigma.com">torreaquiles@administracionsixsigma.com</a> con el recibo de pago adjunto.</p>
-			<p>Les recordamos que los costos son; <span style="color:#4CAF50;font-weight:bold">SUM</span> $1,500.00 M.N. y <span style="color:#2196F3;font-weight:bold">Asadores</span> $1,000.00 M.N., el aforo permitido es de <span style="color:#4CAF50;font-weight:bold">100</span> y <span style="color:#2196F3;font-weight:bold">25</span> respectivamente</p>
+            <p>Para consultas sobre disponibilidad o nuevos apartados, contacte al administrador.</p>
         </div>
     </div>
 
@@ -197,111 +72,55 @@
             const today = new Date();
             const currentYear = today.getFullYear();
             const currentMonth = today.getMonth();
-            const currentDay = today.getDate();
             
-            // Función para generar eventos
-            function generateSampleEvents() {
-                const events = [];
-              
-                return events;
-            }
-            
-            // Función para actualizar el año mostrado
-            function updateYearDisplay(year) {
-                document.getElementById('currentYearDisplay').textContent = `Año: ${year}`;
-            }
-            
-            // Inicializar el calendario
             function initCalendar() {
                 calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
                     initialView: 'dayGridMonth',
                     locale: 'es',
-                    headerToolbar: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: ''
-                    },
-                    events: generateSampleEvents(),
+                    headerToolbar: { left: 'prev,next today', center: 'title', right: '' },
+                    events: [],
                     editable: false,
                     selectable: false,
                     selectMirror: false,
-                    dayMaxEvents: 3, // Permitir hasta 3 eventos por día
-                    eventClick: function(info) {
-                        info.jsEvent.preventDefault();
-                    },
-                    dateClick: function(info) {
-                        // No acción al hacer clic
-                    },
+                    dayMaxEvents: 3,
+                    eventClick: function(info) { info.jsEvent.preventDefault(); },
+                    dateClick: function(info) {},
                     datesSet: function(info) {
-                        // Actualizar el año mostrado cuando cambia la vista
                         const viewDate = info.view.currentStart;
-                        updateYearDisplay(viewDate.getFullYear());
+                        document.getElementById('currentYearDisplay').textContent = `Año: ${viewDate.getFullYear()}`;
                     },
-                    eventContent: function() {
-                        // Retornar contenido vacío para no mostrar texto
-                        return { html: '' };
-                    }
+                    eventContent: function() { return { html: '' }; }
                 });
-
                 calendar.render();
-                updateYearDisplay(currentYear);
+                document.getElementById('currentYearDisplay').textContent = `Año: ${currentYear}`;
                 
-                // =============================================
-                // AGREGAR TRES EVENTOS DE MUESTRA USANDO LA FUNCIÓN APARTADO
-                // =============================================
-                
-                // Arreglo con los eventos de muestra para el mes en curso
+                // Agregar eventos de ejemplo
                 const eventosMuestra = [
-                    // Evento 1: Apartado SUM para el día 15 del mes actual
+                    [15, currentMonth, currentYear, true],
+                    [20, currentMonth, currentYear, false],
+                    [20, currentMonth, currentYear, true],
                     [4, 9, 2025, true],
-					[12, 9, 2025, false],
-					[18, 9, 2025, true],
-					[18, 9, 2025, false],
-					[1, 10, 2025, false],
-					[15, 10, 2025, true],
-					[29, 10, 2025, true],
-					[13, 11, 2025, true],
-					
+                    [10, 10, 2025, false]
                 ];
                 
-                // Agregar cada evento usando la función apartado
                 eventosMuestra.forEach((evento, index) => {
-                    setTimeout(() => {
-                        apartado(evento);
-                    }, 100 * (index + 1)); // Pequeño delay para evitar conflictos
+                    setTimeout(() => apartado(evento), 100 * (index + 1));
                 });
             }
             
-            // =============================================
-            // FUNCIÓN APARTADO - PARA MARCAR FECHAS EN EL CALENDARIO
-            // =============================================
-
             function apartado(datos) {
-                if (!Array.isArray(datos) || datos.length !== 4) {
-                    console.error('Error: El parámetro debe ser un arreglo de 4 elementos');
-                    return;
-                }
-                
+                if (!Array.isArray(datos) || datos.length !== 4) return;
                 const [dia, mes, año, tipo] = datos;
+                if (typeof dia !== 'number' || typeof mes !== 'number' || typeof año !== 'number' || typeof tipo !== 'boolean') return;
+                if (mes < 0 || mes > 11) return;
                 
-                // Validar los datos
-                if (typeof dia !== 'number' || typeof mes !== 'number' || typeof año !== 'number' || typeof tipo !== 'boolean') {
-                    console.error('Error: Los tipos de datos no son correctos');
-                    return;
-                }
-                
-                // Crear el evento para el calendario
-                const evento = {
+                calendar.addEvent({
                     start: new Date(año, mes, dia),
                     color: tipo ? '#4CAF50' : '#2196F3',
                     display: 'block'
-                };
-                
-                // Agregar el evento al calendario
-                calendar.addEvent(evento);
-                console.log(`Apartado ${tipo ? 'SUM' : 'Asadores'} agregado para el ${dia}/${mes + 1}/${año}`);
+                });
             }
-            
+
             initCalendar();
         });
     </script>
